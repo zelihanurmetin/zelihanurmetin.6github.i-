@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Uygulaması</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Ana Sayfa</a></li>
+        <li><a href="tarifler.html">Tarifler</a></li>
+        <li><a href="form.html">Tarif Ekle</a></li>
+        <li><a href="sonuc.html">Tarif Listesi</a></li>
+        <li><a href="js-uygulamasi.html">JS Uygulama</a></li>
+        <li><a href="hakkinda.html">Hakkında</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Basit Sayı Tahmin Oyunu</h1>
+    <p>Bir sayı tahmin edin (1 ile 100 arasında):</p>
+    
+    <input type="number" id="tahmin" min="1" max="100">
+    <button onclick="tahminYap()">Tahmin Et</button>
+    
+    <p id="sonuc"></p>
+    <p id="denemeSayisi"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Yemek Tarifleri</p>
+  </footer>
+
+  <script src="../scripts/myscript.js"></script>
+  <script>
+    // Basit sayı tahmin oyunu
+    let dogruSayi = Math.floor(Math.random() * 100) + 1;
+    let denemeSayisi = 0;
+
+    function tahminYap() {
+      const tahmin = document.getElementById('tahmin').value;
+      denemeSayisi++;
+      
+      if (tahmin == dogruSayi) {
+        document.getElementById('sonuc').textContent = "Tebrikler! Doğru tahmin ettiniz.";
+        document.getElementById('denemeSayisi').textContent = `Toplam deneme sayınız: ${denemeSayisi}`;
+      } else if (tahmin < dogruSayi) {
+        document.getElementById('sonuc').textContent = "Daha büyük bir sayı tahmin edin.";
+      } else {
+        document.getElementById('sonuc').textContent = "Daha küçük bir sayı tahmin edin.";
+      }
+    }
+  </script>
+</body>
+</html>
